@@ -40,7 +40,10 @@ download: $(TARGETS)
 
 .PHONY: release
 release:
-	gh release create $(VERSION) --title $(VERSION) --notes "Mirrored from $(BASE_URL)" || true
+	gh release create $(VERSION) --title $(VERSION) --notes "Mirrored from $(BASE_URL)"
+
+.PHONY: upload
+upload: $(TARGETS)
 	gh release upload $(VERSION) $(TARGETS)
 
 $(TARGETS):
